@@ -1,6 +1,6 @@
-INSERT INTO module (name, description) VALUES ('Module 1', 'This is a test module for testing. Brought to you by the Reduncancy Department of Redundancy.');
-INSERT INTO module (name, description) VALUES ('Module 2', 'Preparing for an Interview.');
-INSERT INTO module (name, description) VALUES ('Module 3', 'Common Interview Questions.');
+INSERT INTO module (name, description, addedDate) VALUES ('Module 1', 'This is a test module for testing. Brought to you by the Reduncancy Department of Redundancy.', '2016-02-28');
+INSERT INTO module (name, description, addedDate) VALUES ('Module 2', 'Preparing for an Interview.', '2016-02-28');
+INSERT INTO module (name, description, addedDate) VALUES ('Module 3', 'Common Interview Questions.', '2016-02-28');
 
 INSERT INTO moduleContent (idModule, idVideo) VALUES (1, 1);
 INSERT INTO moduleContent (idModule, idVideo) VALUES (2, 2);

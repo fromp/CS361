@@ -81,7 +81,7 @@ CREATE TABLE `quizQuestion`(
 
 CREATE TABLE `quiz`(
 	`id` int NOT NULL AUTO_INCREMENT,
-	`name` varchar(45/255) DEFAULT NULL,
+	`name` varchar(255) DEFAULT NULL,
 	`idQQ` int,
 	PRIMARY KEY(`id`),
 	FOREIGN KEY (`idQQ`) REFERENCES `quizQuestion` (`id`)
