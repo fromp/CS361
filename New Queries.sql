@@ -18,7 +18,7 @@ INNER JOIN reading ON moduleContent.idReading = reading.id
 INNER JOIN quiz ON moduleContent.idQuiz = quiz.id;
 
 --Query example to add a reading to a module:
-UPDATE moduleContent SET idReading=? WHERE idModule=?;
+UPDATE moduleContent SET moduleContent.idReading = ? WHERE moduleContent.idModule = ?;
 
 
 --to view the name of a video 
@@ -26,7 +26,7 @@ UPDATE moduleContent SET idReading=? WHERE idModule=?;
 --add the where and only see videos within a specific module be sure to remove ; before where
 SELECT video.name FROM video 
 INNER JOIN moduleContent ON video.id = moduleContent.idVideo 
-INNER JOIN module ON module.id = idModule;
+INNER JOIN module ON module.id = moduleContent.idModule;
 
 WHERE module.id = 2;	
 
@@ -48,9 +48,8 @@ WHERE module.id = ?;
 --since we only have a reading for module 1
 SELECT reading.contentPath FROM reading
 INNER JOIN moduleContent ON reading.id = moduleContent.idReading
-INNER JOIN module ON module.id = moduleContent.idModule
+INNER JOIN module ON module.id = moduleContent.idModuleL
 WHERE module.id = 1;	
-
 
 
 --view question 1 for quiz 1
@@ -104,7 +103,7 @@ WHERE quiz.id = 1 AND quizQuestion.id = 3;
 --find if a user completed a module
 SELECT user.firstName, user.lastName, enrollment.completed, enrollment.grade FROM enrollment
 INNER JOIN user ON user.id = enrollment.idUser
-WHERE user.id = 1 AND module.id = 1;
+WHERE user.id = 1 AND enrollment.idModule = 1;
 
 --a user enrolls in a module
 INSERT INTO enrollment( idUser, idModule) VALUES (
@@ -114,11 +113,13 @@ INSERT INTO enrollment( idUser, idModule) VALUES (
 
 
 --change whether a user completed a particular module
-UPDATE enrollment SET completed = 1 WHERE moduleId = ? AND userID = ?;
+UPDATE enrollment SET completed = 1, compDate = 'insert date' WHERE enrollment.idModule = ? AND enrollment.idUser = ?;
 
 --change grade for a particular user and module
 --can change to any number
-UPDATE enrollment SET grade = 0.75 WHERE moduleID = ? AND userID = ?;
+UPDATE enrollment SET grade = 0.75 WHERE enrollment.idModule = ? AND enrollment.idUser = ?;
+
+
 
 --I didn't test the following queries:  Not sure if they were needed
 
