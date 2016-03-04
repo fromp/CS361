@@ -1,9 +1,0 @@
-Query to search through modules(showing only videos):
-
-SELECT module.name, video.name, reading.name FROM moduleContent 
-INNER JOIN module ON moduleContent.idModule = module.id
-INNER JOIN video ON moduleContent.idVideo = video.id;
-
-Query example to add a reading to a module:
-
-UPDATE moduleContent SET idReading=1 WHERE idModule=1;

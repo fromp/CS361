@@ -1,19 +1,3 @@
---Suggest that you drop the old tables and restart with below since there were some changes
--- Drop the tables if they already exist. Start with a clean slate.
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS `shelter`;
-DROP TABLE IF EXISTS `user`;
-DROP TABLE IF EXISTS `module`;
-DROP TABLE IF EXISTS `moduleContent`;
-DROP TABLE IF EXISTS `reading`;
-DROP TABLE IF EXISTS `video`;
-DROP TABLE IF EXISTS `quizMultipleChoice`;
-DROP TABLE IF EXISTS `quizAnswer`;
-DROP TABLE IF EXISTS `quizQuestion`;
-DROP TABLE IF EXISTS `quiz`;
-SET FOREIGN_KEY_CHECKS = 1;
-
-
 CREATE TABLE `shelter` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -44,8 +28,6 @@ CREATE TABLE `module`(
 	`addedDate` date,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB;
-
-
 
 CREATE TABLE `reading`(
 	`id` int NOT NULL AUTO_INCREMENT,
