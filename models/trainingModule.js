@@ -17,21 +17,17 @@ function getTrainingModulesListing(callback) {
     });
 }
 
-function getTrainingModule(callback_individual, module_ID) {
-    pool.query('SELECT * FROM module WHERE id = ?', [module_ID], function (err, rows, fields) {
-        console.log(rows);
-        var result = {
-            idModule: rows[0].idModule,
-            name: rows[0].moduleName,
-            ModuleDescription: rows[0].ModuleDescription,
-            ModuleVideo: rows[0].ModuleVideo,
-            AddedDate: rows[0].AddedDate
-        };
-        
-        callback_individual(result);
+function getTrainingModule(moduleID, callback) {
+    pool.query('SELECT * FROM module WHERE id = ?', [moduleID], function (err, rows, fields) {
+        if (rows.count == 0) {
+            callback(new Error('Module not found'), null);
+        } else {
+            callback(null, rows[0]);
+        }
     });
 }
 
 module.exports = {
-    getTrainingModulesListing
+    getTrainingModulesListing,
+    getTrainingModule
 };
