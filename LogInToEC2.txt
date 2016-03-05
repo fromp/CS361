@@ -17,7 +17,7 @@ To get to the folder where all the node goodness is:
 cd /shared/CS361
 
 To start the thingie:
-node projectb.js
+npm start
 
 To see your beautiful project live on the interwebs:
 http://52.27.188.34:3030/
