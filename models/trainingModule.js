@@ -12,13 +12,8 @@ function getTrainingModulesListing(callback) {
             callback(err, null);
             return;
         }
-
-        var result = [];
-        for (var i = 0; i < rows.length; i++) {
-            result.push({ name: rows[i].name, addedDate: rows[i].addedDate });
-        }
-            
-        callback(null,result);
+        
+        callback(null, rows);
     });
 }
 
