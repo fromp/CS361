@@ -82,8 +82,15 @@ function testTrainingModuleHappyCase() {
             }
         }
     };
+    
+    var req = {
+        params: {
+            moduleId: 0
+        }
+    };
+    
     try {
-        trainingModulesController.index(null, res);
+        trainingModulesController.trainingModule(req, res);
         if (!goodThingHappened) {
             throw new Error('Response was not rendered with the correct template (training-module)');
         }
@@ -114,8 +121,14 @@ function testTrainingModuleNotFound() {
         }
     };
     
+    var req = {
+        params: {
+            moduleId: 0
+        }
+    };
+    
     try {
-        trainingModulesController.index(null, res);
+        trainingModulesController.trainingModule(req, res);
         if (!goodThingHappened) {
             throw new Error('Response was not rendered with correct template (404)');
         }
@@ -136,6 +149,13 @@ function testTrainingModuleSadCase() {
         }
     };
     var trainingModulesController = new TrainingModulesController(trainingModulesDataAccessor);
+    
+    var req = {
+        params: {
+            moduleId: 0
+        }
+    };
+    
     var res = {
         render: function(templateName, context) {
             if (templateName === '500') {
@@ -147,7 +167,7 @@ function testTrainingModuleSadCase() {
     };
     
     try {
-        trainingModulesController.index(null, res);
+        trainingModulesController.trainingModule(req, res);
         if (!goodThingHappened) {
             throw new Error('Response was not rendered with correct template (500)');
         }

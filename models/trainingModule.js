@@ -19,8 +19,10 @@ function getTrainingModulesListing(callback) {
 
 function getTrainingModule(moduleID, callback) {
     pool.query('SELECT * FROM module WHERE id = ?', [moduleID], function (err, rows, fields) {
-        if (rows.count == 0) {
-            callback(new Error('Module not found'), null);
+        if (err) {
+            callback(err, null);
+        } else if (rows.length === 0) {
+            callback({ name: 'NotFoundError', message: 'Module not found' }, null);
         } else {
             callback(null, rows[0]);
         }

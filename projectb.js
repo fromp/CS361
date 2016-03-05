@@ -39,7 +39,7 @@ var trainingModulesDataAccessor = require('./models/trainingModule.js');
 var trainingModulesController = new TrainingModulesController(trainingModulesDataAccessor);
 // Register routes
 app.get('/training-modules', trainingModulesController.index.bind(trainingModulesController));
-
+app.get('/training-modules/:moduleID', trainingModulesController.trainingModule.bind(trainingModulesController));
 
 
 app.get('/', function(req, res, next){
