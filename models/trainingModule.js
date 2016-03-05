@@ -7,7 +7,7 @@ var pool = mysql.createPool({
 });
 
 function getTrainingModulesListing(callback) {
-    pool.query('SELECT name, description, addedDate FROM module', function (err, rows, fields) {
+    pool.query('SELECT id, name, description, addedDate FROM module', function (err, rows, fields) {
         if (err) {
             callback(err, null);
             return;
