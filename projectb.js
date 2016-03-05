@@ -28,8 +28,19 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3030);
 
-var trainingModules = require('./controllers/trainingModules.js');
-app.use('/training-modules', trainingModules);
+
+// ---- Training Modules ----
+
+// Import constructor function
+var TrainingModulesController = require('./controllers/trainingModules.js');
+// Import data accessor object
+var trainingModulesDataAccessor = require('./models/trainingModule.js');
+// Create controller, passing in data accessor
+var trainingModulesController = new TrainingModulesController(trainingModulesDataAccessor);
+// Register routes
+app.get('/training-modules', trainingModulesController.index.bind(trainingModulesController));
+
+
 
 app.get('/', function(req, res, next){
 	var context = {
