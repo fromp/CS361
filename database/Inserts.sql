@@ -1,3 +1,5 @@
+USE student;
+
 INSERT INTO shelter (name, addressLine1, addressLine2, city, state, postalCode, phone) VALUES ('Central Shelter for Women', '12 Main St.', 'Suite 2B', 'Los Angeles', 'CA', '95141', '221-221-2221');
 INSERT INTO shelter (name, addressLine1, city, state, postalCode, phone) VALUES ('East Side Shelter', '564 MLK Drive', 'Los Angeles', 'CA', '95143', '221-111-4321');
 INSERT INTO shelter (name, addressLine1, addressLine2, city, state, postalCode, phone) VALUES ('West Side Shelter', '2055 W. Elm Street', 'PO Box 9999', 'Los Angeles', 'CA', '95147', '221-333-1234');
@@ -50,13 +52,5 @@ INSERT INTO quizAnswer (answer) VALUES ('Your special qualities that you want th
 INSERT INTO quizQuestion ( idMC, idAnswer, idQuiz) VALUES ( 3, 3, 1);
 
 
-INSERT INTO enrollment (idUser, idModule, completed, grade, compDate) VALUES ( 1, 1, 1, .75, 2016-03-05);
+INSERT INTO enrollment (idUser, idModule, completed, grade, compDate) VALUES ( 1, 1, 1, .75, DATE('2016-03-05'));
 INSERT INTO enrollment (idUser, idModule) VALUES ( 2, 1);
-
-
-
-
-
-
-
-

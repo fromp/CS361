@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS `student`;
+USE `student`;
+
 CREATE TABLE `shelter` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
