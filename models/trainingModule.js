@@ -60,7 +60,12 @@ function getTrainingModule(moduleID, callback) {
                         /*} else if (rowsReading.length === 0) {
 							console.log("reading is broken -- rows length 0");
                             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
+							
                         } else {
+							if(rowsReading.length === 0){
+								rowsReading[0].name = "NULL";
+								rowsReading[0].contentPath = "NULL";
+							}
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
                                     pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
                                         //console.log("Quiz: " + JSON.stringify(rowsQuiz));//fetch quiz content
