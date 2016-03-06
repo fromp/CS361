@@ -1,10 +1,10 @@
 var TrainingModulesModel = require('./models/trainingModule.js');
 
-var TrainingModuleModel = new TrainingModulesModel();
+var TrainingModuleModel = getTrainingModule;
 
 //getTrainingModule
 
 var moduleID = 1;
 var res = {};
 
-TrainingModuleModel.getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
+TrainingModuleModel(moduleID,function(err,res){console.log(JSON.stringify(res))});
