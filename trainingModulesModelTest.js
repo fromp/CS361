@@ -1,11 +1,9 @@
 var trainingModule = require('./models/trainingModule.js');
 
-//var TrainingModuleModel = new GetModuleController();
-
-//getTrainingModule
 var goodResult = 1;
 var moduleID = 1;
 //trainingModule.getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
+
 trainingModule.getTrainingModule(moduleID,function(err,res){
     var result = {"videoName":"Guide to Defining Your Unique Selling Points by CareerOne","videoPath":"https://www.youtube.com/watch?v=FhfqOwq0Q34&feature=youtu.be","readingName":"10 Actionable Steps to Discover Your Unique Skills by Unsettle","readingPath":"http://unsettle.org/skills/","quizName":"Define Your Skills Quiz","quizID":1,"moduleName":"Module 1","moduleDescription":"Learn how to discover your unique skills.","addedDate":"2016-02-28T00:00:00.000Z"}
     
@@ -20,7 +18,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module "+moduleID+": good job!")
+            console.log("module 1: good job!")
         }
 })
 
@@ -40,7 +38,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module "+moduleID+": good job!")
+            console.log("module 2: good job!")
         }
 })
 
@@ -60,7 +58,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module "+moduleID+": good job!")
+            console.log("module 3: good job!")
         }
 })
 
@@ -80,7 +78,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module "+moduleID+": good job!")
+            console.log("module 4: good job!")
         }
 })
 
@@ -100,10 +98,10 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module "+moduleID+": good job!")
+            console.log("module 5: good job!")
         }
 })
-/*
+
 goodResult = 1;
 moduleID = 6;
 trainingModule.getTrainingModule(moduleID,function(err,res){
@@ -112,4 +110,4 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             {
                 console.log("module 6: error: object not null")
             }
-})*/
+})
