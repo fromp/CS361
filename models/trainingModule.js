@@ -35,11 +35,11 @@ function getTrainingModule(moduleID, callback) {
                         } else if (rowsQuiz.length === 0) {
                             callback({name: 'NotFoundError',message: 'Module not found'},null);
                         } else {
-                            var outgoingData = {};
-                            outgoingData.videoName = rowsVideo.name;
-                            outgoingData.videoPath = rowsVideo.filePath;
-                            outgoingData.readingName = rowsReading.name;
-                            console.log(JSON.stringify(outgoingData));
+                            var outgoingData = {videoName : rowsVideo.name};
+                            //outgoingData.videoName = rowsVideo.name;
+                            outgoingData.videoPath : rowsVideo.filePath;
+                            //outgoingData.readingName = rowsReading.name;
+                            //console.log(JSON.stringify(outgoingData));
                         }
                     })
                     
