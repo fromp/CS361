@@ -22,7 +22,7 @@ function getTrainingModule(moduleID, callback) {
 	[moduleID], function(err, rows, fields){
 	//pool.query('SELECT * FROM module WHERE id = ?', [moduleID], function (err, rows, fields) {
         console.log([moduleID]);
-		console.log(rows[0] + " " + rows[1]);
+		console.log(rows[0][0] + " " + rows[0][1]);
 		if (err) {
             callback(err, null);
         } else if (rows.length === 0) {
