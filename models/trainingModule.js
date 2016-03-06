@@ -6,7 +6,12 @@ var pool = mysql.createPool({
 	database:	'student'
 });
 
-function getTrainingModulesListing(callback) {
+
+function GetModuleController(dataAccessor) {
+    this.dataAccessor = dataAccessor;
+}
+
+GetModuleController.prototype.getTrainingModulesListing(callback) {
     pool.query('SELECT id, name, description, addedDate FROM module', function (err, rows, fields) {
         if (err) {
             callback(err, null);
@@ -17,7 +22,7 @@ function getTrainingModulesListing(callback) {
     });
 }
 
-function getTrainingModule(moduleID, callback) {
+GetModuleController.prototype.getTrainingModule(moduleID, callback) {
 	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
 	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
@@ -86,7 +91,4 @@ function getTrainingModule(moduleID, callback) {
     });
 }
 
-module.exports = {
-    getTrainingModulesListing,
-    getTrainingModule
-};
+module.exports = GetModuleController;
