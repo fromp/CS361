@@ -25,7 +25,7 @@ function getTrainingModule(moduleID, callback) {
         } else if (rows.length === 0) {
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
         } else {
-            console.log(JSON.stringify(rows));//fetch module content
+            //console.log(JSON.stringify(rows));//fetch module content
             pool.query('SELECT * FROM video WHERE id = ?', [rows[0].idVideo], function(err,rowsVideo, fields)
             {
                 if (err) {
@@ -33,21 +33,21 @@ function getTrainingModule(moduleID, callback) {
                 } else if (rowsVideo.length === 0) {
                     callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                 } else {
-                    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
+                //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
                     pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
                     if (err) {
                         callback(err,null);
                     } else if (rowsModule.length === 0) {
                         callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                     } else {
-                            console.log("Module: " + JSON.stringify(rowsModule));//fetch module content
+                  //          console.log("Module: " + JSON.stringify(rowsModule));//fetch module content
                             pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
                         if (err) {
                             callback(err,null);
                         } else if (rowsReading.length === 0) {
                             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                         } else {
-                                    console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
+                    //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
                                     pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
                                         console.log("Quiz: " + JSON.stringify(rowsQuiz));//fetch quiz content
                                         if (err) {
@@ -65,7 +65,7 @@ function getTrainingModule(moduleID, callback) {
                                             outgoingData.moduleName = rowsModule[0].name;
                                             outgoingData.moduleDescription = rowsModule[0].description;
                                             outgoingData.addedDate = rowsModule[0].addedDate;
-                                            console.log(JSON.stringify(outgoingData));
+                                            console.log("Outgoing Data: " + JSON.stringify(outgoingData));
                                             callback(null,outgoingData);
                                         }
                                     })
