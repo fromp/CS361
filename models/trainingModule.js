@@ -44,7 +44,7 @@ function getTrainingModule(moduleID, callback) {
                     callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
                 } else {
                 //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
-                    pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
+					pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
                     if (err) {
 						console.log("module is broken");
                         callback(err,null);
@@ -53,7 +53,8 @@ function getTrainingModule(moduleID, callback) {
 						callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                     } else {
                   //          console.log("Module: " + JSON.stringify(rowsModule));//fetch module content
-                            pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
+						var rowsReading = [];
+                        pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
                         if (err) {
 							console.log("reading is broken");
                             callback(err,null);
@@ -63,8 +64,7 @@ function getTrainingModule(moduleID, callback) {
 							
                         } else {
 							if(rowsReading.length === 0){
-								rowsReading[0].name = "NULL";
-								rowsReading[0].contentPath = "NULL";
+								rowsReading[0] = {name : "NULL", contentPath : "NULL"};
 							}
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
                                     pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
