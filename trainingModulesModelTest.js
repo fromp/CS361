@@ -1,5 +1,5 @@
 var trainingModule = require('./models/trainingModule.js');
-/*
+
 var goodResult = 1;
 var moduleID = 1;
 //trainingModule.getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
@@ -101,7 +101,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             console.log("module 5: good job!")
         }
 })
-*/
+
 goodResult = 1;
 moduleID = 6;
 trainingModule.getTrainingModule(moduleID,function(err,res){
