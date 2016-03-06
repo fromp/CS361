@@ -91,7 +91,6 @@ function getTrainingModule(moduleID, callback) {
                                             outgoingData.quizID = rowsQuiz[0].id;
                                             outgoingData.moduleName = rowsModule[0].name;
                                             outgoingData.moduleDescription = rowsModule[0].description;
-                                            outgoingData.addedDate = rowsModule[0].addedDate;
 //                                            console.log("Outgoing Data: " + JSON.stringify(outgoingData));
                                             callback(null,outgoingData);
                                         }
