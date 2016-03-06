@@ -24,13 +24,13 @@ function getTrainingModule(moduleID, callback) {
 	'LEFT JOIN reading ON moduleContent.idReading = reading.id' +
 	'LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id' + 
 	'where moduleContent.idModule = ?', [moduleID], function (err, rows, fields) {
-        if (err) {
+        console.log(rows[0]);
+		if (err) {
             callback(err, null);
         } else if (rows.length === 0) {
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);
         } else {
-			console.log(rows[0]);
-            callback(null, rows[0]);
+			callback(null, rows[0]);
         }
     });
 }
