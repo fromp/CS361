@@ -4,7 +4,7 @@ function TrainingModuleController(dataAccessor) {
 }
 
 TrainingModuleController.prototype.index = function (req, res) {
-    this.dataAccessor.getTrainingModulesListing(function(err, modules) {
+    this.dataAccessor.GetModuleController.getTrainingModulesListing(function(err, modules) {
         var context = {
             modules: modules,
             trainingActive: true
@@ -19,7 +19,7 @@ TrainingModuleController.prototype.index = function (req, res) {
 };
 
 TrainingModuleController.prototype.trainingModule = function(req, res) {
-    this.dataAccessor.getTrainingModule(req.params.moduleID, function(err, module) {
+    this.dataAccessor.GetModuleController.getTrainingModule(req.params.moduleID, function(err, module) {
         var context = {
             module: module,
             trainingActive: true
