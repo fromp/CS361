@@ -35,9 +35,9 @@ function getTrainingModule(moduleID, callback) {
                         } else if (rowsQuiz.length === 0) {
                             callback({name: 'NotFoundError',message: 'Module not found'},null);
                         } else {
-                            var outgoingData = {videoName : rowsVideo.name};
+                            var outgoingData = {videoName : rowsVideo[0].name};
                             //outgoingData.videoName = rowsVideo.name;
-                            //outgoingData.videoPath = rowsVideo.filePath;
+                            outgoingData.videoPath = rowsVideo[0].filePath;
                             //outgoingData.readingName = rowsReading.name;
                             console.log(JSON.stringify(outgoingData));
                         }
