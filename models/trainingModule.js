@@ -23,7 +23,7 @@ function getTrainingModule(moduleID, callback) {
 	'LEFT JOIN video ON moduleContent.idVideo = video.id' +
 	'LEFT JOIN reading ON moduleContent.idReading = reading.id' +
 	'LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id' + 
-	'where moduleContent.idModule = ?', [moduleID], function (err, rows, fields) {
+	'where moduleContent.idModule = 1', [moduleID], function (err, rows, fields) {
         console.log([moduleID]);
 		console.log(rows);
 		if (err) {
