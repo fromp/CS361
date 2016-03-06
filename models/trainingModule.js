@@ -67,7 +67,8 @@ function getTrainingModule(moduleID, callback) {
 								rowsReading[0] = {name : "NULL", contentPath : "NULL"};
 							}
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
-                                    pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
+                                    var quiz = [];
+									pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
                                         //console.log("Quiz: " + JSON.stringify(rowsQuiz));//fetch quiz content
                                         if (err) {
 											console.log("quiz is broken");
@@ -76,6 +77,9 @@ function getTrainingModule(moduleID, callback) {
 											console.log("quiz is broken -- rows length 0");
                                             callback({name: 'NotFoundError',message: 'Module not found'},null);*/
                                         } else {
+											if(rowsQuiz.length === 0){
+												rowsQuiz[0] = {name : "NULL", id : "NULL"};
+											}
                                             var outgoingData = {};//outgoingData is an object containing data from the various databases
                                             outgoingData.videoName = rowsVideo[0].name;
                                             outgoingData.videoPath = rowsVideo[0].filePath;
