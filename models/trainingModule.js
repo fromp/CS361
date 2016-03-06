@@ -29,6 +29,7 @@ function getTrainingModule(moduleID, callback) {
         } else if (rows.length === 0) {
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);
         } else {
+			console.log(rows[0]);
             callback(null, rows[0]);
         }
     });
