@@ -22,7 +22,8 @@ function getTrainingModule(moduleID, callback) {
 	[moduleID], function(err, rows, fields){
 	//pool.query('SELECT * FROM module WHERE id = ?', [moduleID], function (err, rows, fields) {
         console.log([moduleID]);
-		console.log(rows);
+		for(each prop in rows)
+			console.log(rows[prop]);
 		if (err) {
             callback(err, null);
         } else if (rows.length === 0) {
