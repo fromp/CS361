@@ -119,6 +119,5 @@ GetModuleController.prototype.getTrainingModule = getTrainingModule;
 //module.exports = GetModuleController;
 module.exports = {
 	getTrainingModulesListing,
-	getTrainingModule,
-	GetModuleController
+	getTrainingModule
 };
