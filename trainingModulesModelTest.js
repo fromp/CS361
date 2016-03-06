@@ -104,8 +104,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
 
 goodResult = 1;
 moduleID = 6;
-trainingModule.getTrainingModule(moduleID,function(err,res,1){
-        if (Object.keys(res).length !== NULL)
+trainingModule.getTrainingModule(moduleID,function(err,res){
+        if (err)
             {
                 console.log("module 6: good job!");
             }

@@ -20,7 +20,7 @@ function getTrainingModulesListing(callback) {
     });
 }
 
-function getTrainingModule(moduleID, callback, errBack) {
+function getTrainingModule(moduleID, callback) {
 //	console.log(moduleID);
 	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
 	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
@@ -29,10 +29,6 @@ function getTrainingModule(moduleID, callback, errBack) {
             callback(err,null);
         } else if (rows.length === 0) {
 			console.log("moduleContent is broken -- rows length 0");
-            if (errBack)
-                {
-                    return "moduleContent is broken -- rows length 0";
-                }
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
         } else {
             //console.log(JSON.stringify(rows));//fetch module content
