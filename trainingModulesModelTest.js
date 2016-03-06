@@ -104,10 +104,14 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
 
 goodResult = 1;
 moduleID = 6;
-trainingModule.getTrainingModule(moduleID,function(err,res){
-    var res = {}
-        if (Object.keys(res).length !== 0)
+trainingModule.getTrainingModule(moduleID,function(err,res,1){
+        if (Object.keys(res).length !== NULL)
             {
-                console.log("module 6: error: object not null")
+                console.log("module 6: good job!");
+            }
+        else
+            {
+                goodResult = 0;
+                console.log("module 6: object not broken")
             }
 })
