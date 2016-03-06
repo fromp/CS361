@@ -18,7 +18,12 @@ function getTrainingModulesListing(callback) {
 }
 
 function getTrainingModule(moduleID, callback) {
-    pool.query('SELECT * FROM module WHERE id = ?', [moduleID], function (err, rows, fields) {
+	pool.query('SELECT module.id, module.name, module.description, module.addDate video.id, video.name, video.filePath, reading.id, reading.name, reading.contentPath, quiz.id, quiz.name FROM moduleContent' +
+	'LEFT JOIN module ON moduleContent.idModule = module.id' +   
+	'LEFT JOIN video ON moduleContent.idVideo = video.id' +
+	'LEFT JOIN reading ON moduleContent.idReading = reading.id' +
+	'LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id' + 
+	'where moduleContent.idModule = ?', [moduleID], function (err, rows, fields) {
         if (err) {
             callback(err, null);
         } else if (rows.length === 0) {
