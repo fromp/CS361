@@ -37,7 +37,7 @@ function getTrainingModule(moduleID, callback) {
                         } else {
                             var outgoingData = {videoName : rowsVideo.name};
                             //outgoingData.videoName = rowsVideo.name;
-                            outgoingData.videoPath : rowsVideo.filePath;
+                            //outgoingData.videoPath = rowsVideo.filePath;
                             //outgoingData.readingName = rowsReading.name;
                             //console.log(JSON.stringify(outgoingData));
                         }
