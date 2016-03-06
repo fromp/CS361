@@ -30,21 +30,21 @@ function getTrainingModule(moduleID, callback) {
             {
                 if (err) {
                     callback(err,null);
-                } else if (rows.length === 0) {
+                } else if (rowsVideo.length === 0) {
                     callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                 } else {
                     console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
                     pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
                     if (err) {
                         callback(err,null);
-                    } else if (rows.length === 0) {
+                    } else if (rowsModule.length === 0) {
                         callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                     } else {
                             console.log("Module: " + JSON.stringify(rowsModule));//fetch module content
                             pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
                         if (err) {
                             callback(err,null);
-                        } else if (rows.length === 0) {
+                        } else if (rowsReading.length === 0) {
                             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                         } else {
                                     console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
