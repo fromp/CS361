@@ -30,6 +30,7 @@ function getTrainingModule(moduleID, callback) {
 			console.log("moduleContent is broken");
             callback(err,null);
         } else if (rows.length === 0) {
+			console.log("moduleContent is broken -- rows length 0");
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
         } else {
             //console.log(JSON.stringify(rows));//fetch module content
@@ -39,6 +40,7 @@ function getTrainingModule(moduleID, callback) {
 					console.log("video is broken");
                     callback(err,null);
                 } else if (rowsVideo.length === 0) {
+					console.log("video is broken -- rows length 0");
                     callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                 } else {
                 //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
@@ -47,7 +49,8 @@ function getTrainingModule(moduleID, callback) {
 						console.log("module is broken");
                         callback(err,null);
                     } else if (rowsModule.length === 0) {
-                        callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
+                        console.log("module is broken -- rows length 0");
+						callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                     } else {
                   //          console.log("Module: " + JSON.stringify(rowsModule));//fetch module content
                             pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
@@ -55,6 +58,7 @@ function getTrainingModule(moduleID, callback) {
 							console.log("reading is broken");
                             callback(err,null);
                         } else if (rowsReading.length === 0) {
+							console.log("reading is broken -- rows length 0");
                             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                         } else {
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
@@ -64,6 +68,7 @@ function getTrainingModule(moduleID, callback) {
 											console.log("quiz is broken");
                                             callback(err,null);
                                         } else if (rowsQuiz.length === 0) {
+											console.log("quiz is broken -- rows length 0");
                                             callback({name: 'NotFoundError',message: 'Module not found'},null);
                                         } else {
                                             var outgoingData = {};//outgoingData is an object containing data from the various databases
