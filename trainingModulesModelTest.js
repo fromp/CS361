@@ -11,7 +11,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     var result = {"videoName":"Guide to Defining Your Unique Selling Points by CareerOne","videoPath":"https://www.youtube.com/watch?v=FhfqOwq0Q34&feature=youtu.be","readingName":"10 Actionable Steps to Discover Your Unique Skills by Unsettle","readingPath":"http://unsettle.org/skills/","quizName":"Define Your Skills Quiz","quizID":1,"moduleName":"Module 1","moduleDescription":"Learn how to discover your unique skills.","addedDate":"2016-02-28T00:00:00.000Z"}
     
     var goodResult = 1;
-    for each (var prop in res)
+    for(var prop in res)
     {
         if (res[prop] != result[prop])
             {
