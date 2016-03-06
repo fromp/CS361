@@ -112,6 +112,4 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             {
                 console.log("module 6: error: object not null")
             }
-        }
-    };
 })
