@@ -5,4 +5,4 @@ var TrainingModulesModel = require('./models/trainingModule.js');
 var moduleID = 1;
 var res = {};
 
-getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
+TrainingModulesModel.getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
