@@ -20,7 +20,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module 3: good job!")
+            console.log("module "+moduleID+": good job!")
         }
 })
 
@@ -40,7 +40,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module 2: good job!")
+            console.log("module "+moduleID+": good job!")
         }
 })
 
@@ -60,7 +60,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module 3: good job!")
+            console.log("module "+moduleID+": good job!")
         }
 })
 
@@ -80,7 +80,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module 4: good job!")
+            console.log("module "+moduleID+": good job!")
         }
 })
 
@@ -100,7 +100,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
     }
     if (goodResult === 1)
         {
-            console.log("module 5: good job!")
+            console.log("module "+moduleID+": good job!")
         }
 })
 /*
