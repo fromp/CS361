@@ -105,7 +105,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
 goodResult = 1;
 moduleID = 6;
 trainingModule.getTrainingModule(moduleID,function(err,res){
-    var result = {}
+    var res = {}
         if (Object.keys(res).length !== 0)
             {
                 console.log("module 6: error: object not null")
