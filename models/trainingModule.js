@@ -34,6 +34,7 @@ function getTrainingModule(moduleID, callback) {
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
         } else {
             //console.log(JSON.stringify(rows));//fetch module content
+			var video = [];
             pool.query('SELECT * FROM video WHERE id = ?', [rows[0].idVideo], function(err,rowsVideo, fields)
             {
                 if (err) {
@@ -44,6 +45,9 @@ function getTrainingModule(moduleID, callback) {
                     callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
                 } else {
                 //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
+					if(rowsVideo.length === 0){
+						rowsVideo[0] = {name : "NULL", filePath : "NULL"};
+					}
 					pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
                     if (err) {
 						console.log("module is broken");
