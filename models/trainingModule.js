@@ -49,7 +49,7 @@ function getTrainingModule(moduleID, callback) {
                         } else {
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
                                     pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
-                                        console.log("Quiz: " + JSON.stringify(rowsQuiz));//fetch quiz content
+                                        //console.log("Quiz: " + JSON.stringify(rowsQuiz));//fetch quiz content
                                         if (err) {
                                             callback(err,null);
                                         } else if (rowsQuiz.length === 0) {
