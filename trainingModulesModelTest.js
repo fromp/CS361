@@ -1,4 +1,4 @@
-var TrainingModulesModel = require('/models/trainingModule.js');
+var TrainingModulesModel = require('./models/trainingModule.js');
 
 //getTrainingModule
 
