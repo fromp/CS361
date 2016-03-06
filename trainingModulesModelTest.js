@@ -103,7 +103,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             console.log("module 5: good job!")
         }
 })
-
+/*
 goodResult = 1;
 moduleID = 6;
 trainingModule.getTrainingModule(moduleID,function(err,res){
@@ -112,4 +112,4 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             {
                 console.log("module 6: error: object not null")
             }
-})
+})*/
