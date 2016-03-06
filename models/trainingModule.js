@@ -21,7 +21,7 @@ function getTrainingModulesListing(callback) {
 }
 
 function getTrainingModule(moduleID, callback) {
-	console.log(moduleID);
+//	console.log(moduleID);
 	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
 	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
@@ -92,7 +92,7 @@ function getTrainingModule(moduleID, callback) {
                                             outgoingData.moduleName = rowsModule[0].name;
                                             outgoingData.moduleDescription = rowsModule[0].description;
                                             outgoingData.addedDate = rowsModule[0].addedDate;
-                                            console.log("Outgoing Data: " + JSON.stringify(outgoingData));
+//                                            console.log("Outgoing Data: " + JSON.stringify(outgoingData));
                                             callback(null,outgoingData);
                                         }
                                     })
