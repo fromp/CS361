@@ -23,7 +23,7 @@ function getTrainingModulesListing(callback) {
 function getTrainingModule(moduleID, callback) {
 //	console.log(moduleID);
 	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
-	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
+	pool.query('SELECT * FROM Content WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
 			console.log("moduleContent is broken");
             callback(err,null);
