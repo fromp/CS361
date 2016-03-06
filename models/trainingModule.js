@@ -39,9 +39,9 @@ function getTrainingModule(moduleID, callback) {
                 if (err) {
 					console.log("video is broken");
                     callback(err,null);
-                } else if (rowsVideo.length === 0) {
+                /*} else if (rowsVideo.length === 0) {
 					console.log("video is broken -- rows length 0");
-                    callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
+                    callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
                 } else {
                 //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
                     pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
@@ -57,9 +57,9 @@ function getTrainingModule(moduleID, callback) {
                         if (err) {
 							console.log("reading is broken");
                             callback(err,null);
-                        } else if (rowsReading.length === 0) {
+                        /*} else if (rowsReading.length === 0) {
 							console.log("reading is broken -- rows length 0");
-                            callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
+                            callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
                         } else {
                     //                console.log("Reading: " + JSON.stringify(rowsReading));//fetch reading content
                                     pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
@@ -67,9 +67,9 @@ function getTrainingModule(moduleID, callback) {
                                         if (err) {
 											console.log("quiz is broken");
                                             callback(err,null);
-                                        } else if (rowsQuiz.length === 0) {
+                                        /*} else if (rowsQuiz.length === 0) {
 											console.log("quiz is broken -- rows length 0");
-                                            callback({name: 'NotFoundError',message: 'Module not found'},null);
+                                            callback({name: 'NotFoundError',message: 'Module not found'},null);*/
                                         } else {
                                             var outgoingData = {};//outgoingData is an object containing data from the various databases
                                             outgoingData.videoName = rowsVideo[0].name;
