@@ -39,7 +39,7 @@ function getTrainingModule(moduleID, callback) {
                             //outgoingData.videoName = rowsVideo.name;
                             //outgoingData.videoPath = rowsVideo.filePath;
                             //outgoingData.readingName = rowsReading.name;
-                            //console.log(JSON.stringify(outgoingData));
+                            console.log(JSON.stringify(outgoingData));
                         }
                     })
                     
