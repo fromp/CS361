@@ -7,11 +7,11 @@ var pool = mysql.createPool({
 });
 
 
-function GetModuleController(dataAccessor) {
-    this.dataAccessor = dataAccessor;
+function GetModuleController() {
+    
 }
 
-GetModuleController.prototype.getTrainingModulesListing(callback) {
+function getTrainingModulesListing(callback) {
     pool.query('SELECT id, name, description, addedDate FROM module', function (err, rows, fields) {
         if (err) {
             callback(err, null);
@@ -22,7 +22,7 @@ GetModuleController.prototype.getTrainingModulesListing(callback) {
     });
 }
 
-GetModuleController.prototype.getTrainingModule(moduleID, callback) {
+function getTrainingModule(moduleID, callback) {
 	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
 	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
@@ -90,5 +90,8 @@ GetModuleController.prototype.getTrainingModule(moduleID, callback) {
         }
     });
 }
+
+GetModuleController.prototype.getTrainingModulesListing = getTrainingModulesListing;
+GetModuleController.prototype.getTrainingModule = getTrainingModule;
 
 module.exports = GetModuleController;
