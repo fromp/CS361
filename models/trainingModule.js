@@ -22,7 +22,10 @@ function getTrainingModule(moduleID, callback) {
 	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         pool.query('SELECT * FROM video WHERE id = ?', [rows[0].idVideo], function(err,rowsVideo, fields)
         {
-            console.log(JSON.stringify(rowsVideo));
+            console.log("Video: "+ JSON.stringify(rowsVideo));
+            pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
+                console.log("Module: " + JSON.stringify(rowsModule))
+            })
         })
 	    console.log(JSON.stringify(rows));
 		if (err) {
