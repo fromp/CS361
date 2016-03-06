@@ -24,7 +24,13 @@ function getTrainingModule(moduleID, callback) {
         {
             console.log("Video: "+ JSON.stringify(rowsVideo));
             pool.query('SELECT * FROM module WHERE id = ?',[rows[0].idModule],function(err,rowsModule,fields){
-                console.log("Module: " + JSON.stringify(rowsModule))
+                console.log("Module: " + JSON.stringify(rowsModule));
+                pool.query('SELECT * FROM reading WHERE id = ?',[rows[0].idReading],function(err,rowsReading,fields){
+                    console.log("Reading: " + JSON.stringify(rowsReading));
+                    pool.query('SELECT * FROM quiz WHERE id = ?',[rows[0].idQuiz],function(err,rowsQuiz,fields){
+                        console.log("Quiz: " + JSON.stringify(rowsQuiz));
+                    })
+                })
             })
         })
 	    console.log(JSON.stringify(rows));
