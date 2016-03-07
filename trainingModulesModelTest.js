@@ -1,5 +1,10 @@
 var trainingModule = require('./models/trainingModule.js');
 
+
+//testing getTrainingModule function (the one that returns values for individual training modules)
+//testing w/ each known module cor correct values, testing w/ a bad module to ensure no values returned from DB
+//manually tested a bad quiry from DB
+
 var goodResult = 1;
 var moduleID = 1;
 //trainingModule.getTrainingModule(moduleID,function(err,res){console.log(JSON.stringify(res))});
@@ -114,4 +119,25 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
                 console.log("module 6: object not broken")
             }
+})
+
+//testing getTrainingModulesListing to ensure returning proper values from module table
+//test w/ values in table
+//manual test w/ bad query
+goodResult = 1;
+trainingModule.getTrainingModulesListing(function(err,res){
+    result = {"id":1,"name":"Module 1","description":"Learn how to discover your unique skills.","addedDate":"2016-02-28T00:00:00.000Z"},{"id":2,"name":"Module 2","description":"Learn how to read a job ad and create a resume.","addedDate":"2016-02-28T00:00:00.000Z"},{"id":3,"name":"Module 3","description":"Learn how to prepare for a job interview.","addedDate":"2016-02-28T00:00:00.000Z"},{"id":4,"name":"Module 4","description":"Learn how to present yourself in a job interview.","addedDate":"2016-02-28T00:00:00.000Z"},{"id":5,"name":"Module 5","description":"Practice interview questions.","addedDate":"2016-02-28T00:00:00.000Z"}//correct/expected result
+    
+    for (var prop in res)
+        {
+            if(res[prop] != result[prop])
+                {
+                    goodResult = 0;
+                    console.log("error in getListing at: " + prop);
+                }
+        }
+    if(goodResult === 1)
+        {
+            console.log("getTrainingModulesListing produced good result");
+        }
 })

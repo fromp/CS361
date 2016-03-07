@@ -13,7 +13,7 @@ function getTrainingModulesListing(callback) {
             callback(err, null);
             return;
         }
-        console.log(JSON.stringify(rows));
+//        console.log(JSON.stringify(rows));
         callback(null, rows);
     });
 }
