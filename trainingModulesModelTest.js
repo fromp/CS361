@@ -20,7 +20,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
-				console.log("Harcoded: " + result[prop]);
+				console.log("Harcoded: " + result[prop] + "\n");
+");
             }
     }
     if (goodResult === 1)
@@ -42,7 +43,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
-				console.log("Harcoded: " + result[prop]);
+				console.log("Harcoded: " + result[prop] + "\n");
+");
             }
     }
     if (goodResult === 1)
@@ -64,7 +66,7 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
 				console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
-				console.log("Harcoded: " + result[prop]);
+				console.log("Harcoded: " + result[prop] + "\n");
             }
     }
     if (goodResult === 1)
@@ -86,7 +88,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
 				console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
-				console.log("Harcoded: " + result[prop]);
+				console.log("Harcoded: " + result[prop] + "\n");
+");
             }
     }
     if (goodResult === 1)
@@ -108,7 +111,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 goodResult = 0;
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
-				console.log("Harcoded: " + result[prop]);
+				console.log("Harcoded: " + result[prop] + "\n");
+");
             }
     }
     if (goodResult === 1)
