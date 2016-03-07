@@ -7,15 +7,13 @@ var pool = mysql.createPool({
 });
 
 
-function GetModuleController() { }
-
 function getTrainingModulesListing(callback) {
     pool.query('SELECT id, name, description, addedDate FROM module', function (err, rows, fields) {
         if (err) {
             callback(err, null);
             return;
         }
-        
+        console.log(JSON.stringify(rows));
         callback(null, rows);
     });
 }
