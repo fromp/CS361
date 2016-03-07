@@ -35,13 +35,13 @@ function getTrainingModule(moduleID, callback) {
 			console.log("Rows: " + JSON.stringify(rows));
 			var outgoingData = {};//outgoingData is an object containing data from the various databases
 			outgoingData.videoName = rows[0].VideoName;
-			outgoingData.videoPath = rowsVideo[0].VideoPath;
+			outgoingData.videoPath = rows[0].VideoPath;
 			outgoingData.readingName = rows[0].ReadingName;
-			outgoingData.readingPath = rowsReading[0].ReadingPath;
+			outgoingData.readingPath = rows[0].ReadingPath;
 			outgoingData.quizName = rows[0].QuizName;
-			outgoingData.quizID = rowsQuiz[0].QuizId;
+			outgoingData.quizID = rows[0].QuizId;
 			outgoingData.moduleName = rows[0].ModuleName;
-			outgoingData.moduleDescription = rowsModule[0].ModDesc;
+			outgoingData.moduleDescription = rows[0].ModDesc;
 			console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
 		}
