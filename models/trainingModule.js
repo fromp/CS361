@@ -110,9 +110,6 @@ function getTrainingModule(moduleID, callback) {
     });
 }
 
-GetModuleController.prototype.getTrainingModulesListing = getTrainingModulesListing;
-GetModuleController.prototype.getTrainingModule = getTrainingModule;
-
 //module.exports = GetModuleController;
 module.exports = {
 	getTrainingModulesListing,
