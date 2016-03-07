@@ -34,13 +34,13 @@ function getTrainingModule(moduleID, callback) {
 		} else {
 			console.log("Rows: " + JSON.stringify(rows));
 			var outgoingData = {};//outgoingData is an object containing data from the various databases
-			outgoingData.videoName = rows.VideoName;
+			outgoingData.videoName = rows[0].VideoName;
 			//outgoingData.videoPath = rowsVideo[0].filePath;
-			outgoingData.readingName = rows.ReadingName;
+			outgoingData.readingName = rows[0].ReadingName;
 			//outgoingData.readingPath = rowsReading[0].contentPath;
-			outgoingData.quizName = rows.QuizName;
+			outgoingData.quizName = rows[0].QuizName;
 			//outgoingData.quizID = rowsQuiz[0].id;
-			outgoingData.moduleName = rows.ModuleName;
+			outgoingData.moduleName = rows[0].ModuleName;
 			//outgoingData.moduleDescription = rowsModule[0].description;
 			console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
