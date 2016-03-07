@@ -127,19 +127,21 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
 goodResult = 1;
 trainingModule.getTrainingModulesListing(function(err,res){
     result = [{"id":1,"name":"Module 1","description":"Learn how to discover your unique skills."},{"id":2,"name":"Module 2","description":"Learn how to read a job ad and create a resume."},{"id":3,"name":"Module 3","description":"Learn how to prepare for a job interview."},{"id":4,"name":"Module 4","description":"Learn how to present yourself in a job interview."},{"id":5,"name":"Module 5","description":"Practice interview questions."}]//correct/expected result without date
-    
-    for (var prop in result)
-        {
-            if(res[prop] != result[prop])
-                {
-                    console.log(res[prop]);
-                    console.log(result[prop]);
-                    goodResult = 0;
-                    console.log("error in getListing at: " + prop);
-                }
-        }
-    if(goodResult === 1)
-        {
-            console.log("getTrainingModulesListing produced good result");
-        }
+for (var index = 0; index < result.length; index++)
+    {
+        for (var prop in result[index])
+            {
+                if(res[index][prop] != result[index][prop])
+                    {
+                        console.log(res[index][prop]);
+                        console.log(result[index][prop]);
+                        goodResult = 0;
+                        console.log("error in getListing at: " + prop);
+                    }
+            }
+        if(goodResult === 1)
+            {
+                console.log("getTrainingModulesListing produced good result");
+            }
+    }
 })
