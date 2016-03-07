@@ -20,8 +20,32 @@ function getTrainingModulesListing(callback) {
 
 function getTrainingModule(moduleID, callback) {
 //	console.log(moduleID);
-	//pool.query('SELECT module.name, video.name, reading.name, quiz.name FROM moduleContent LEFT JOIN module ON moduleContent.idModule = module.id LEFT JOIN video ON moduleContent.idVideo = video.id LEFT JOIN reading ON moduleContent.idReading = reading.id LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
-	pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
+	pool.query('SELECT module.name as ModName, video.name as VideoName, reading.name as ReadingName, quiz.name as QuizName FROM moduleContent ' +
+	'LEFT JOIN module ON moduleContent.idModule = module.id '+
+	'LEFT JOIN video ON moduleContent.idVideo = video.id '+
+	'LEFT JOIN reading ON moduleContent.idReading = reading.id '+ 
+	'LEFT JOIN quiz ON moduleContent.idQuiz = quiz.id where moduleContent.idModule = ?',
+	[moduleID], function(err, rows, fields){
+		if(err){
+			callback(err, null);
+		}
+		else if (rows.length === 0) {
+			callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
+		} else {
+			var outgoingData = {};//outgoingData is an object containing data from the various databases
+			outgoingData.videoName = rows[VideoName];
+			//outgoingData.videoPath = rowsVideo[0].filePath;
+			outgoingData.readingName = rows[ReadingName];
+			//outgoingData.readingPath = rowsReading[0].contentPath;
+			outgoingData.quizName = rows[QuizName];
+			//outgoingData.quizID = rowsQuiz[0].id;
+			outgoingData.moduleName = rows[ModuleName];
+			//outgoingData.moduleDescription = rowsModule[0].description;
+			//console.log("Outgoing Data: " + JSON.stringify(outgoingData));
+			callback(null,outgoingData);
+		}
+	}
+	/*pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
 			console.log("moduleContent is broken");
             callback(err,null);
@@ -36,9 +60,9 @@ function getTrainingModule(moduleID, callback) {
                 if (err) {
 					console.log("video is broken");
                     callback(err,null);
-                /*} else if (rowsVideo.length === 0) {
+                } else if (rowsVideo.length === 0) {
 					console.log("video is broken -- rows length 0");
-                    callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
+                    callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
                 } else {
                 //    console.log("Video: "+ JSON.stringify(rowsVideo));//fetch video content    
 					if(rowsVideo.length === 0){
@@ -58,9 +82,9 @@ function getTrainingModule(moduleID, callback) {
                         if (err) {
 							console.log("reading is broken");
                             callback(err,null);
-                        /*} else if (rowsReading.length === 0) {
+                        } else if (rowsReading.length === 0) {
 							console.log("reading is broken -- rows length 0");
-                            callback({ name: 'NotFoundError', message: 'Module not found' }, null);   */
+                            callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
 							
                         } else {
 							if(rowsReading.length === 0){
@@ -73,9 +97,9 @@ function getTrainingModule(moduleID, callback) {
                                         if (err) {
 											console.log("quiz is broken");
                                             callback(err,null);
-                                        /*} else if (rowsQuiz.length === 0) {
+                                        } else if (rowsQuiz.length === 0) {
 											console.log("quiz is broken -- rows length 0");
-                                            callback({name: 'NotFoundError',message: 'Module not found'},null);*/
+                                            callback({name: 'NotFoundError',message: 'Module not found'},null);
                                         } else {
 											if(rowsQuiz.length === 0){
 												rowsQuiz[0] = {name : "NULL", id : "NULL"};
@@ -100,14 +124,14 @@ function getTrainingModule(moduleID, callback) {
                 }
             })
 
-/*		if (err) {
+		if (err) {
             callback(err, null);
         } else if (rows.length === 0) {
             callback({ name: 'NotFoundError', message: 'Module not found' }, null);
         } else {
-			callback(null, rows[0]);*/
+			callback(null, rows[0]);
         }
-    });
+    });*/
 }
 
 //module.exports = GetModuleController;
