@@ -19,6 +19,8 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
             {
                 goodResult = 0;
                 console.log("module 1: error: " + prop);
+				console.log(res[prop]);
+				console.log(result[prop]);
             }
     }
     if (goodResult === 1)

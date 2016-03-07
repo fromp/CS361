@@ -32,17 +32,17 @@ function getTrainingModule(moduleID, callback) {
 		else if (rows.length === 0) {
 			callback({ name: 'NotFoundError', message: 'Module not found' }, null);   
 		} else {
-			console.log("Rows: " + JSON.stringify(rows));
+			//console.log("Rows: " + JSON.stringify(rows));
 			var outgoingData = {};//outgoingData is an object containing data from the various databases
-			outgoingData.videoName = rows[0].VideoName;
-			outgoingData.videoPath = rows[0].VideoPath;
-			outgoingData.readingName = rows[0].ReadingName;
-			outgoingData.readingPath = rows[0].ReadingPath;
-			outgoingData.quizName = rows[0].QuizName;
-			outgoingData.quizID = rows[0].QuizId;
-			outgoingData.moduleName = rows[0].ModName;
-			outgoingData.moduleDescription = rows[0].ModDesc;
-			console.log("Outgoing Data: " + JSON.stringify(outgoingData));
+			outgoingData.VideoName = rows[0].VideoName;
+			outgoingData.VideoPath = rows[0].VideoPath;
+			outgoingData.ReadingName = rows[0].ReadingName;
+			outgoingData.ReadingPath = rows[0].ReadingPath;
+			outgoingData.QuizName = rows[0].QuizName;
+			outgoingData.QuizID = rows[0].QuizId;
+			outgoingData.ModuleName = rows[0].ModName;
+			outgoingData.ModuleDescription = rows[0].ModDesc;
+			//console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
 		}
 	});
