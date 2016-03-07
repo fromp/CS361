@@ -40,7 +40,7 @@ function getTrainingModule(moduleID, callback) {
 			outgoingData.readingPath = rows[0].ReadingPath;
 			outgoingData.quizName = rows[0].QuizName;
 			outgoingData.quizID = rows[0].QuizId;
-			outgoingData.moduleName = rows[0].ModuleName;
+			outgoingData.moduleName = rows[0].ModName;
 			outgoingData.moduleDescription = rows[0].ModDesc;
 			console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
