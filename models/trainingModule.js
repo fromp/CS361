@@ -44,7 +44,8 @@ function getTrainingModule(moduleID, callback) {
 			//console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
 		}
-	}
+	});
+}
 	/*pool.query('SELECT * FROM moduleContent WHERE moduleContent.idModule = ?', [moduleID], function(err, rows, fields){
         if (err) {
 			console.log("moduleContent is broken");
@@ -131,8 +132,8 @@ function getTrainingModule(moduleID, callback) {
         } else {
 			callback(null, rows[0]);
         }
-    });*/
-}
+    });
+}*/
 
 //module.exports = GetModuleController;
 module.exports = {
