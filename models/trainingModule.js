@@ -20,7 +20,7 @@ function getTrainingModulesListing(callback) {
 
 function getTrainingModule(moduleID, callback) {
 //	console.log(moduleID);
-	pool.query('SELECT module.name as ModName, video.name as VideoName, reading.name as ReadingName, quiz.name as QuizName FROM moduleContent ' +
+	pool.query('SELECT module.name as ModName, module.description as ModDesc, video.name as VideoName, video.filePath as VideoPath, reading.name as ReadingName, reading.contentPath as ReadingPath, quiz.id as QuizId, quiz.name as QuizName FROM moduleContent ' +
 	'LEFT JOIN module ON moduleContent.idModule = module.id '+
 	'LEFT JOIN video ON moduleContent.idVideo = video.id '+
 	'LEFT JOIN reading ON moduleContent.idReading = reading.id '+ 
@@ -35,13 +35,13 @@ function getTrainingModule(moduleID, callback) {
 			console.log("Rows: " + JSON.stringify(rows));
 			var outgoingData = {};//outgoingData is an object containing data from the various databases
 			outgoingData.videoName = rows[0].VideoName;
-			//outgoingData.videoPath = rowsVideo[0].filePath;
+			outgoingData.videoPath = rowsVideo[0].VideoPath;
 			outgoingData.readingName = rows[0].ReadingName;
-			//outgoingData.readingPath = rowsReading[0].contentPath;
+			outgoingData.readingPath = rowsReading[0].ReadingPath;
 			outgoingData.quizName = rows[0].QuizName;
-			//outgoingData.quizID = rowsQuiz[0].id;
+			outgoingData.quizID = rowsQuiz[0].QuizId;
 			outgoingData.moduleName = rows[0].ModuleName;
-			//outgoingData.moduleDescription = rowsModule[0].description;
+			outgoingData.moduleDescription = rowsModule[0].ModDesc;
 			console.log("Outgoing Data: " + JSON.stringify(outgoingData));
 			callback(null,outgoingData);
 		}
