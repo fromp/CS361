@@ -21,7 +21,6 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
 				console.log("Harcoded: " + result[prop] + "\n");
-");
             }
     }
     if (goodResult === 1)
@@ -44,7 +43,6 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
 				console.log("Harcoded: " + result[prop] + "\n");
-");
             }
     }
     if (goodResult === 1)
@@ -89,7 +87,6 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
 				console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
 				console.log("Harcoded: " + result[prop] + "\n");
-");
             }
     }
     if (goodResult === 1)
@@ -112,7 +109,6 @@ trainingModule.getTrainingModule(moduleID,function(err,res){
                 console.log("module 1: error: " + prop);
 				console.log("Res: " + res[prop]);
 				console.log("Harcoded: " + result[prop] + "\n");
-");
             }
     }
     if (goodResult === 1)
