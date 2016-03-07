@@ -132,6 +132,8 @@ trainingModule.getTrainingModulesListing(function(err,res){
         {
             if(res[prop] != result[prop])
                 {
+                    console.log(res[prop]);
+                    console.log(result[prop]);
                     goodResult = 0;
                     console.log("error in getListing at: " + prop);
                 }
