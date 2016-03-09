@@ -2,16 +2,16 @@
 <p class="lead" style="text-align: center;">{{module.moduleDescription}}</p>
 <p>Video: <a href="{{module.videoPath}}">{{module.videoName}}</a></p>
 <p>Reading: 
-{#if module.readingPath}
-<a href="{{module.readingPath}}">{{module.readingName}}</a>
-{else}
-N/A
-{/if}
+	{{#if module.readingPath}}
+		<a href="{{module.readingPath}}">{{module.readingName}}</a>
+	{{else}}
+		N/A
+	{{/if}}
 </p>
 <p>Quiz: 
-{#if module.quizID}
-<a href="#:{{module.quizID}}">{{module.quizName}}</a>
-{else}
-N/A
-{/if}
+	{{#if module.quizID}}
+		<a href="#:{{module.quizID}}">{{module.quizName}}</a>
+	{{else}}
+		N/A
+	{{/if}}
 </p>
