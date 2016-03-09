@@ -1,8 +1,5 @@
-<p><h3>{{module.moduleName}}</h3></p>
+<p><h3 style="text-align: center;">{{module.moduleName}}</h3></p>
 <p class="lead">Module description: {{module.moduleDescription}}</p>
-<p>Video name: {{module.videoName}}</p>
-<p>Video path: {{module.videoPath}}</p>
-<p>Reading name: {{module.readingName}}</p>
-<p>Reading path: {{module.readingPath}}</p>
-<p>Quiz id: {{module.quizID}}</p>
-<p>Quiz name: {{module.quizName}}</p>
+<p>Video: <a href="{{module.videoPath}}">{{module.videoName}}</a></p>
+<p>Reading: <a href="{{module.readingPath}}">{{module.readingName}}</a></p>
+<p>Quiz: <a href="#:{{module.quizID}}">{{module.quizName}}</a></p>
