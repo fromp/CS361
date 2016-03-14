@@ -1,8 +1,3 @@
-/*
-URL: http://52.27.188.34:3030/table
-Please note that the table can be reset using a button on the above page.
-It can also be reset by visiting http://52.27.188.34:3030/reset-table
-*/
 
 var request = require('request');
 var express = require('express');
