@@ -1,12 +1,19 @@
-var mysql = require('mysql');//grab required package for mysql interaction
-var pool = mysql.createPool({//create pool to interact with mysql
+// Grab required package for mysql interaction.
+var mysql = require('mysql');
+
+// Create pool to interact with MySQL.
+var pool = mysql.createPool({
 	host 	:	'localhost',
 	user 	:	'student',
 	password:	'default',
 	database:	'student'
 });
 
-//this function retrieves the list of training modules from module DB, and returns the name, description, added date, and id of that module to put on list page
+/**
+ * Retrieves the list of training modules from module DB.
+ * Each module contains a name, description, added date, and id to display on the listing page.
+ * @param callback: A function which consumes a possible error and a possible result value to be called when the query completes.
+ */
 function getTrainingModulesListing(callback) {
     pool.query('SELECT id, name, description, addedDate FROM module', function (err, rows, fields) {
         if (err) {//if no results produced, throw an error
@@ -16,8 +23,12 @@ function getTrainingModulesListing(callback) {
         callback(null, rows);
     });
 }
-//this function retrieves info about desired training module from the various tables, compiles them into an object and returns object
-//accepts a module ID as input
+
+/**
+ * Retrieves info about desired training module from the various tables, compiles them into an object and returns the object.
+ * @param moduleID: The ID of the module to query details about.
+ * @param callback: A function which consumes a possible error and a possible result value to be called when the query completes. 
+ */
 function getTrainingModule(moduleID, callback) {
 	pool.query('SELECT module.name as ModName, module.description as ModDesc, video.name as VideoName, video.filePath as VideoPath, reading.name as ReadingName, reading.contentPath as ReadingPath, quiz.id as QuizId, quiz.name as QuizName FROM moduleContent ' +
 	'LEFT JOIN module ON moduleContent.idModule = module.id '+
